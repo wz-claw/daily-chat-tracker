@@ -1,6 +1,6 @@
 # Daily Chat Tracker
 
-A private tracker for daily chat duration statistics.
+A tracker for daily chat duration statistics with online/offline distinction.
 
 ## How to Use
 
@@ -15,10 +15,13 @@ Add entries to `data.json` in this format:
 ```json
 {
   "date": "YYYY-MM-DD",
-  "hours": 2.5,
-  "notes": "Optional notes"
+  "online": 4,
+  "offline": 1
 }
 ```
+
+- `online` - hours of online chat
+- `offline` - hours of offline (in-person) chat
 
 ## Updating Data
 
@@ -29,7 +32,8 @@ Simply add new entries to the `data.json` array and push to the `gh-pages` branc
 The statistics page shows:
 - Total days tracked
 - Total hours
+- Online hours (blue)
+- Offline hours (orange)
 - Average hours per day
-- Maximum hours in a day
-- Trend chart
+- Stacked bar chart showing online/offline breakdown
 - Detailed data table

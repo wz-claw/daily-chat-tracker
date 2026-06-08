@@ -178,7 +178,6 @@
                     <th>🔵 Online</th>
                     <th>🟠 Offline</th>
                     <th>Total</th>
-                    <th>Notes</th>
                 </tr>
             </thead>
             <tbody id="dataTable">
@@ -300,7 +299,6 @@
                     <td class="online-cell">${item.online > 0 ? item.online + 'h' : '-'}</td>
                     <td class="offline-cell">${item.offline > 0 ? item.offline + 'h' : '-'}</td>
                     <td><strong>${item.online + item.offline}h</strong></td>
-                    <td>${item.notes || '-'}</td>
                 </tr>
             `).join('');
         }
