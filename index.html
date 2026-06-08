@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日聊天统计</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <style>
         * {
             margin: 0;
@@ -276,6 +277,7 @@
         }
 
         function renderChart() {
+            Chart.register(ChartDataLabels);
             const ctx = document.getElementById('trendChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
@@ -301,7 +303,18 @@
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: { display: false },
+                        datalabels: {
+                            display: true,
+                            color: 'white',
+                            font: {
+                                weight: 'bold',
+                                size: 12
+                            },
+                            formatter: (value) => value > 0 ? value + 'h' : '',
+                            anchor: 'center',
+                            align: 'center'
+                        }
                     },
                     scales: {
                         x: {
