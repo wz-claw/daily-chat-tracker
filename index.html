@@ -47,10 +47,10 @@
             color: #1a365d;
         }
         .stat-value.online {
-            color: #2b6cb0;
+            color: #6b9dc2;
         }
         .stat-value.offline {
-            color: #38a169;
+            color: #7cc49a;
         }
         .stat-label {
             color: #718096;
@@ -89,10 +89,10 @@
             border-radius: 50%;
         }
         .legend-dot.online {
-            background: #2b6cb0;
+            background: #6b9dc2;
         }
         .legend-dot.offline {
-            background: #38a169;
+            background: #7cc49a;
         }
         .data-table {
             width: 100%;
@@ -123,11 +123,11 @@
             background: #f7fafc;
         }
         .online-cell {
-            color: #2b6cb0;
+            color: #6b9dc2;
             font-weight: 500;
         }
         .offline-cell {
-            color: #38a169;
+            color: #7cc49a;
             font-weight: 500;
         }
         .footer {
@@ -262,14 +262,14 @@
                         {
                             label: '线上',
                             data: chatData.map(item => item.online),
-                            backgroundColor: '#2b6cb0',
+                            backgroundColor: '#6b9dc2',
                             borderRadius: { topLeft: 6, topRight: 6 },
                             borderSkipped: 'bottom'
                         },
                         {
                             label: '线下',
                             data: chatData.map(item => item.offline),
-                            backgroundColor: '#38a169',
+                            backgroundColor: '#7cc49a',
                             borderRadius: { topLeft: 6, topRight: 6 },
                             borderSkipped: 'bottom'
                         }
