@@ -2,37 +2,31 @@
   {
     "date": "2026-06-02",
     "online": 4,
-    "offline": 1,
-    "notes": "线下+线上"
+    "offline": 1
   },
   {
     "date": "2026-06-03",
     "online": 0,
-    "offline": 4,
-    "notes": "线下"
+    "offline": 4
   },
   {
     "date": "2026-06-04",
     "online": 6,
-    "offline": 0,
-    "notes": "线上"
+    "offline": 0
   },
   {
     "date": "2026-06-06",
     "online": 8,
-    "offline": 0,
-    "notes": "线上"
+    "offline": 0
   },
   {
     "date": "2026-06-07",
     "online": 5,
-    "offline": 0,
-    "notes": "线上"
+    "offline": 0
   },
   {
     "date": "2026-06-08",
     "online": 0,
-    "offline": 2,
-    "notes": "线下"
+    "offline": 2
   }
 ]
