@@ -137,8 +137,31 @@
             font-size: 0.8em;
         }
         @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+            h1 {
+                font-size: 1.4em;
+                margin-bottom: 24px;
+            }
             .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 14px;
+            }
+            .stat-value {
+                font-size: 1.5em;
+            }
+            .chart-container {
+                padding: 16px;
+            }
+            .data-table {
+                font-size: 0.85em;
+            }
+            .data-table th, .data-table td {
+                padding: 10px 8px;
             }
         }
     </style>
