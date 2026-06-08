@@ -289,14 +289,30 @@
                             data: chatData.map(item => item.online),
                             backgroundColor: '#6b9dc2',
                             borderRadius: 0,
-                            borderSkipped: 'start'
+                            borderSkipped: 'start',
+                            datalabels: {
+                                display: true,
+                                color: 'white',
+                                font: { weight: 'bold', size: 12 },
+                                formatter: (value) => value > 0 ? value + 'h' : '',
+                                anchor: 'center',
+                                align: 'center'
+                            }
                         },
                         {
                             label: '线下',
                             data: chatData.map(item => item.offline),
                             backgroundColor: '#7cc49a',
                             borderRadius: 0,
-                            borderSkipped: 'start'
+                            borderSkipped: 'start',
+                            datalabels: {
+                                display: true,
+                                color: 'white',
+                                font: { weight: 'bold', size: 12 },
+                                formatter: (value) => value > 0 ? value + 'h' : '',
+                                anchor: 'center',
+                                align: 'center'
+                            }
                         }
                     ]
                 },
