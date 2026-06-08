@@ -1,16 +1,14 @@
-# Daily Chat Tracker
+# 每日聊天统计
 
-A tracker for daily chat duration statistics with online/offline distinction.
+记录每日聊天时长，区分线上/线下。
 
-## How to Use
+## 使用方法
 
-1. Update `data.json` with your daily chat duration data
-2. Push changes to trigger automatic deployment
-3. View statistics at the GitHub Pages URL
+1. 更新 `data.json` 中的数据
+2. 推送到 `gh-pages` 分支触发自动部署
+3. 访问 GitHub Pages 查看统计
 
-## Data Format
-
-Add entries to `data.json` in this format:
+## 数据格式
 
 ```json
 {
@@ -20,20 +18,13 @@ Add entries to `data.json` in this format:
 }
 ```
 
-- `online` - hours of online chat
-- `offline` - hours of offline (in-person) chat
+- `online` - 线上聊天时长（小时）
+- `offline` - 线下聊天时长（小时）
 
-## Updating Data
+## 统计页面
 
-Simply add new entries to the `data.json` array and push to the `gh-pages` branch. The GitHub Action will automatically update the statistics page.
-
-## Viewing Stats
-
-The statistics page shows:
-- Total days tracked
-- Total hours
-- Online hours (blue)
-- Offline hours (orange)
-- Average hours per day
-- Stacked bar chart showing online/offline breakdown
-- Detailed data table
+- 记录天数
+- 总时长 / 线上时长 / 线下时长
+- 日均时长
+- 堆叠柱状图趋势
+- 详细数据表格
