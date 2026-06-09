@@ -31,7 +31,7 @@
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 16px;
             margin-bottom: 32px;
         }
@@ -192,10 +192,6 @@
                 <div class="stat-value" id="avgHours">0</div>
                 <div class="stat-label">日均</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalHugs">0</div>
-                <div class="stat-label">🤗 拥抱</div>
-            </div>
         </div>
 
         <div class="chart-container">
@@ -220,7 +216,7 @@
                     <th>线上</th>
                     <th>线下</th>
                     <th>合计</th>
-                    <th>🤗</th>
+                    <th>备注</th>
                 </tr>
             </thead>
             <tbody id="dataTable">
@@ -268,7 +264,7 @@
     "date": "2026-06-09",
     "online": 0,
     "offline": 3.5,
-    "hug": 1
+    "note": "🤗"
   }
 ];
 
@@ -279,22 +275,41 @@
             const totalHours = totalOnline + totalOffline;
             const avgHours = totalDays > 0 ? (totalHours / totalDays).toFixed(1) : 0;
 
-            const totalHugs = chatData.reduce((sum, item) => sum + (item.hug || 0), 0);
-
             document.getElementById('totalDays').textContent = totalDays;
             document.getElementById('totalHours').textContent = totalHours.toFixed(1);
             document.getElementById('onlineHours').textContent = totalOnline.toFixed(1);
             document.getElementById('offlineHours').textContent = totalOffline.toFixed(1);
             document.getElementById('avgHours').textContent = avgHours;
-            document.getElementById('totalHugs').textContent = totalHugs;
             document.getElementById('lastUpdate').textContent = new Date().toLocaleString('zh-CN');
         }
 
         function renderChart() {
             Chart.register(ChartDataLabels);
+            const notePlugin = {
+                id: 'notePlugin',
+                afterDatasetsDraw(chart) {
+                    const ctx = chart.ctx;
+                    const meta0 = chart.getDatasetMeta(0);
+                    const meta1 = chart.getDatasetMeta(1);
+                    chatData.forEach((item, i) => {
+                        if (!item.note) return;
+                        const bar = meta1.data[i] || meta0.data[i];
+                        const top = Math.min(
+                            meta0.data[i]?.y ?? Infinity,
+                            meta1.data[i]?.y ?? Infinity
+                        );
+                        ctx.save();
+                        ctx.font = '16px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(item.note, bar.x, top - 8);
+                        ctx.restore();
+                    });
+                }
+            };
             const ctx = document.getElementById('trendChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
+                plugins: [notePlugin],
                 data: {
                     labels: chatData.map(item => item.date),
                     datasets: [
@@ -374,7 +389,7 @@
                     <td class="online-cell">${item.online > 0 ? item.online + 'h' : '-'}</td>
                     <td class="offline-cell">${item.offline > 0 ? item.offline + 'h' : '-'}</td>
                     <td><strong>${item.online + item.offline}h</strong></td>
-                    <td>${item.hug ? '🤗' : ''}</td>
+                    <td>${item.note || ''}</td>
                 </tr>
             `).join('');
         }
