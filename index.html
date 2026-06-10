@@ -229,52 +229,10 @@
     </div>
 
     <script>
-        const chatData = [
-  {
-    "date": "2026-06-02",
-    "online": 4,
-    "offline": 1
-  },
-  {
-    "date": "2026-06-03",
-    "online": 0,
-    "offline": 4
-  },
-  {
-    "date": "2026-06-04",
-    "online": 6,
-    "offline": 0
-  },
-  {
-    "date": "2026-06-06",
-    "online": 8,
-    "offline": 0
-  },
-  {
-    "date": "2026-06-07",
-    "online": 5,
-    "offline": 0
-  },
-  {
-    "date": "2026-06-08",
-    "online": 0,
-    "offline": 2
-  },
-  {
-    "date": "2026-06-09",
-    "online": 0,
-    "offline": 3.5,
-    "note": "🤗"
-  },
-  {
-    "date": "2026-06-10",
-    "online": 0,
-    "offline": 3,
-    "note": "平静"
-  }
-];
-
-        function updateStats() {
+        fetch('data.json')
+            .then(r => r.json())
+            .then(chatData => {
+                function updateStats() {
             const totalDays = chatData.length;
             const totalOnline = chatData.reduce((sum, item) => sum + item.online, 0);
             const totalOffline = chatData.reduce((sum, item) => sum + item.offline, 0);
@@ -400,9 +358,10 @@
             `).join('');
         }
 
-        updateStats();
-        renderChart();
-        renderTable();
+                updateStats();
+                renderChart();
+                renderTable();
+            });
     </script>
 </body>
 </html>
