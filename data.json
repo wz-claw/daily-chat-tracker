@@ -46,5 +46,16 @@
     "online": 0,
     "offline": 2,
     "note": "😌"
+  },
+  {
+    "date": "2026-06-12",
+    "online": 0,
+    "offline": 6,
+    "note": "🤝"
+  },
+  {
+    "date": "2026-06-13",
+    "online": 6,
+    "offline": 6
   }
 ]
