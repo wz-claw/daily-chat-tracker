@@ -64,5 +64,10 @@
     "online": 2.5,
     "offline": 4,
     "note": "🤝"
+  },
+  {
+    "date": "2026-06-15",
+    "online": 3.5,
+    "offline": 0
   }
 ]
