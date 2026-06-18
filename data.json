@@ -80,5 +80,10 @@
     "date": "2026-06-17",
     "online": 1,
     "offline": 3
+  },
+  {
+    "date": "2026-06-18",
+    "online": 2,
+    "offline": 0
   }
 ]
