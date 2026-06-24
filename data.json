@@ -87,6 +87,24 @@
     "offline": 0
   },
   {
+    "date": "2026-06-19",
+    "online": 1.5,
+    "offline": 11,
+    "note": "🧳"
+  },
+  {
+    "date": "2026-06-20",
+    "online": 0,
+    "offline": 14,
+    "note": "🧳"
+  },
+  {
+    "date": "2026-06-21",
+    "online": 3,
+    "offline": 11,
+    "note": "🧳"
+  },
+  {
     "date": "2026-06-22",
     "online": 0,
     "offline": 2
