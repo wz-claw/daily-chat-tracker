@@ -156,5 +156,15 @@
     "date": "2026-06-30",
     "online": 0,
     "offline": 4
+  },
+  {
+    "date": "2026-07-01",
+    "online": 0,
+    "offline": 2
+  },
+  {
+    "date": "2026-07-02",
+    "online": 0,
+    "offline": 5
   }
 ]
