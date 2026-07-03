@@ -166,5 +166,11 @@
     "date": "2026-07-02",
     "online": 0,
     "offline": 5
+  },
+  {
+    "date": "2026-07-03",
+    "online": 6,
+    "offline": 0,
+    "note": "📞"
   }
 ]
