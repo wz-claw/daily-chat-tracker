@@ -265,7 +265,7 @@
                         ctx.save();
                         ctx.font = '16px sans-serif';
                         ctx.textAlign = 'center';
-                        ctx.fillText(item.note, bar.x, top - 8);
+                        ctx.fillText(Array.from(item.note)[0], bar.x, top - 8);
                         ctx.restore();
                     });
                 }
