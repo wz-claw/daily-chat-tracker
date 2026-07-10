@@ -207,5 +207,11 @@
     "online": 1,
     "offline": 4,
     "note": "😘"
+  },
+  {
+    "date": "2026-07-10",
+    "online": 7,
+    "offline": 0.5,
+    "note": "📞"
   }
 ]
