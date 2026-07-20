@@ -261,5 +261,10 @@
     "online": 9.5,
     "offline": 0,
     "note": "📞"
+  },
+  {
+    "date": "2026-07-20",
+    "online": 0,
+    "offline": 3
   }
 ]
