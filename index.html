@@ -137,6 +137,51 @@
             margin-top: 32px;
             font-size: 0.8em;
         }
+        .range-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            color: #718096;
+            font-size: 0.9em;
+        }
+        .range-bar input {
+            width: 72px;
+            padding: 6px 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95em;
+            text-align: center;
+            color: #2d3748;
+        }
+        .range-bar input:focus {
+            outline: none;
+            border-color: #6b9dc2;
+        }
+        .range-bar button {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 8px;
+            background: #6b9dc2;
+            color: white;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        .range-bar button:hover {
+            background: #5a8ab0;
+        }
+        .range-bar button.reset {
+            background: #edf2f7;
+            color: #4a5568;
+        }
+        .range-bar button.reset:hover {
+            background: #e2e8f0;
+        }
+        .range-bar .current-range {
+            color: #6b9dc2;
+            font-weight: 500;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 20px 12px;
@@ -170,6 +215,15 @@
 <body>
     <div class="container">
         <h1>每日聊天统计</h1>
+
+        <div class="range-bar">
+            查看范围：过去
+            <input type="number" id="rangeDays" min="1" placeholder="天数">
+            天
+            <button id="applyRange">应用</button>
+            <button id="resetRange" class="reset">全部</button>
+            <span class="current-range" id="currentRange"></span>
+        </div>
         
         <div class="stats-grid">
             <div class="stat-card">
@@ -232,10 +286,13 @@
         fetch('data.json')
             .then(r => r.json())
             .then(chatData => {
+                let currentData = chatData;
+                let trendChart = null;
+
                 function updateStats() {
-            const totalDays = chatData.length;
-            const totalOnline = chatData.reduce((sum, item) => sum + item.online, 0);
-            const totalOffline = chatData.reduce((sum, item) => sum + item.offline, 0);
+            const totalDays = currentData.length;
+            const totalOnline = currentData.reduce((sum, item) => sum + item.online, 0);
+            const totalOffline = currentData.reduce((sum, item) => sum + item.offline, 0);
             const totalHours = totalOnline + totalOffline;
             const avgHours = totalDays > 0 ? (totalHours / totalDays).toFixed(1) : 0;
 
@@ -247,15 +304,48 @@
             document.getElementById('lastUpdate').textContent = new Date().toLocaleString('zh-CN');
         }
 
+        function applyRange() {
+            const input = document.getElementById('rangeDays');
+            const days = parseInt(input.value, 10);
+            const label = document.getElementById('currentRange');
+            if (!days || days < 1) {
+                return;
+            }
+            currentData = chatData.slice(-days);
+            label.textContent = days >= chatData.length
+                ? `（全部 ${chatData.length} 天）`
+                : `（过去 ${days} 天）`;
+            updateStats();
+            renderChart();
+        }
+
+        function resetRange() {
+            currentData = chatData;
+            document.getElementById('rangeDays').value = '';
+            document.getElementById('currentRange').textContent = '';
+            updateStats();
+            renderChart();
+        }
+
+        document.getElementById('applyRange').addEventListener('click', applyRange);
+        document.getElementById('resetRange').addEventListener('click', resetRange);
+        document.getElementById('rangeDays').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') applyRange();
+        });
+
         function renderChart() {
             Chart.register(ChartDataLabels);
+            if (trendChart) {
+                trendChart.destroy();
+            }
+            const viewData = currentData;
             const notePlugin = {
                 id: 'notePlugin',
                 afterDatasetsDraw(chart) {
                     const ctx = chart.ctx;
                     const meta0 = chart.getDatasetMeta(0);
                     const meta1 = chart.getDatasetMeta(1);
-                    chatData.forEach((item, i) => {
+                    viewData.forEach((item, i) => {
                         if (!item.note) return;
                         const bar = meta1.data[i] || meta0.data[i];
                         const top = Math.min(
@@ -271,15 +361,15 @@
                 }
             };
             const ctx = document.getElementById('trendChart').getContext('2d');
-            new Chart(ctx, {
+            trendChart = new Chart(ctx, {
                 type: 'bar',
                 plugins: [notePlugin],
                 data: {
-                    labels: chatData.map(item => item.date),
+                    labels: viewData.map(item => item.date),
                     datasets: [
                         {
                             label: '线上',
-                            data: chatData.map(item => item.online),
+                            data: viewData.map(item => item.online),
                             backgroundColor: '#6b9dc2',
                             borderRadius: 0,
                             borderSkipped: 'start',
@@ -294,7 +384,7 @@
                         },
                         {
                             label: '线下',
-                            data: chatData.map(item => item.offline),
+                            data: viewData.map(item => item.offline),
                             backgroundColor: '#7cc49a',
                             borderRadius: 0,
                             borderSkipped: 'start',
