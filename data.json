@@ -308,5 +308,11 @@
     "online": 2,
     "offline": 3.5,
     "note": "📞"
+  },
+  {
+    "date": "2026-07-28",
+    "online": 2,
+    "offline": 3.5,
+    "note": "💬"
   }
 ]
