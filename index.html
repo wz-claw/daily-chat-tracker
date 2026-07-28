@@ -182,6 +182,19 @@
             color: #6b9dc2;
             font-weight: 500;
         }
+        .range-bar .emoji-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .range-bar .emoji-toggle input {
+            width: auto;
+            accent-color: #6b9dc2;
+            cursor: pointer;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 20px 12px;
@@ -223,6 +236,10 @@
             <button id="applyRange">应用</button>
             <button id="resetRange" class="reset">全部</button>
             <span class="current-range" id="currentRange"></span>
+            <label class="emoji-toggle">
+                <input type="checkbox" id="showEmoji" checked>
+                显示表情
+            </label>
         </div>
         
         <div class="stats-grid">
@@ -332,6 +349,7 @@
         document.getElementById('rangeDays').addEventListener('keydown', (e) => {
             if (e.key === 'Enter') applyRange();
         });
+        document.getElementById('showEmoji').addEventListener('change', renderChart);
 
         function renderChart() {
             Chart.register(ChartDataLabels);
@@ -339,9 +357,11 @@
                 trendChart.destroy();
             }
             const viewData = currentData;
+            const showEmoji = document.getElementById('showEmoji').checked;
             const notePlugin = {
                 id: 'notePlugin',
                 afterDatasetsDraw(chart) {
+                    if (!showEmoji) return;
                     const ctx = chart.ctx;
                     const meta0 = chart.getDatasetMeta(0);
                     const meta1 = chart.getDatasetMeta(1);
