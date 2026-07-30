@@ -320,5 +320,11 @@
     "online": 3,
     "offline": 3,
     "note": "📞"
+  },
+  {
+    "date": "2026-07-30",
+    "online": 3.5,
+    "offline": 2.5,
+    "note": "📞"
   }
 ]
