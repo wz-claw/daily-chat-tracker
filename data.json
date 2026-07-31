@@ -330,6 +330,7 @@
   {
     "date": "2026-07-31",
     "online": 3.5,
-    "offline": 4.5
+    "offline": 4.5,
+    "note": "📞"
   }
 ]
