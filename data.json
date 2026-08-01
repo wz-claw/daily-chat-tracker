@@ -332,5 +332,11 @@
     "online": 3.5,
     "offline": 4.5,
     "note": "📞"
+  },
+  {
+    "date": "2026-08-01",
+    "online": 6,
+    "offline": 10.5,
+    "note": "🎤"
   }
 ]
