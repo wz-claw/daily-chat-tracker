@@ -338,5 +338,11 @@
     "online": 6,
     "offline": 10.5,
     "note": "🎫📞"
+  },
+  {
+    "date": "2026-08-02",
+    "online": 5.5,
+    "offline": 10,
+    "note": "📞"
   }
 ]
