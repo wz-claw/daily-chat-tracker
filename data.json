@@ -344,5 +344,11 @@
     "online": 5.5,
     "offline": 10,
     "note": "📞"
+  },
+  {
+    "date": "2026-08-03",
+    "online": 3,
+    "offline": 3.5,
+    "note": "📞"
   }
 ]
