@@ -350,5 +350,11 @@
     "online": 3,
     "offline": 3.5,
     "note": "📞"
+  },
+  {
+    "date": "2026-08-04",
+    "online": 4.5,
+    "offline": 2,
+    "note": "📞"
   }
 ]
