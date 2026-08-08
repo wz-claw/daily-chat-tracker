@@ -376,7 +376,8 @@
   },
   {
     "date": "2026-08-08",
-    "online": 0,
-    "offline": 1
+    "online": 3,
+    "offline": 1,
+    "note": "📞"
   }
 ]
