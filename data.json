@@ -385,5 +385,10 @@
     "online": 3.5,
     "offline": 0,
     "note": "🎧📞"
+  },
+  {
+    "date": "2026-08-10",
+    "online": 0,
+    "offline": 6
   }
 ]
