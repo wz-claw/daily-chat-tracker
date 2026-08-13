@@ -402,5 +402,11 @@
     "online": 2,
     "offline": 4.5,
     "note": "💼"
+  },
+  {
+    "date": "2026-08-13",
+    "online": 2.5,
+    "offline": 8,
+    "note": "📞"
   }
 ]
