@@ -408,5 +408,10 @@
     "online": 2.5,
     "offline": 8,
     "note": "📞"
+  },
+  {
+    "date": "2026-08-14",
+    "online": 3,
+    "offline": 5
   }
 ]
