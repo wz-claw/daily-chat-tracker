@@ -413,5 +413,11 @@
     "date": "2026-08-14",
     "online": 3,
     "offline": 5
+  },
+  {
+    "date": "2026-08-15",
+    "online": 0,
+    "offline": 17,
+    "note": "💼"
   }
 ]
