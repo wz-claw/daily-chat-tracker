@@ -425,5 +425,11 @@
     "online": 4.5,
     "offline": 10.5,
     "note": "💼"
+  },
+  {
+    "date": "2026-08-17",
+    "online": 3.5,
+    "offline": 4,
+    "note": "🎬"
   }
 ]
