@@ -431,5 +431,11 @@
     "online": 3.5,
     "offline": 4.5,
     "note": "🎬"
+  },
+  {
+    "date": "2026-08-18",
+    "online": 2.5,
+    "offline": 4,
+    "note": "📞"
   }
 ]
