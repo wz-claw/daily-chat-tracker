@@ -437,5 +437,10 @@
     "online": 2.5,
     "offline": 4,
     "note": "📞"
+  },
+  {
+    "date": "2026-08-19",
+    "online": 0,
+    "offline": 3.5
   }
 ]
