@@ -453,5 +453,10 @@
     "online": 2,
     "offline": 8.5,
     "note": "🍀"
+  },
+  {
+    "date": "2026-08-22",
+    "online": 3,
+    "offline": 11.5
   }
 ]
