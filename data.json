@@ -475,5 +475,10 @@
     "online": 1.5,
     "offline": 5,
     "note": "😷"
+  },
+  {
+    "date": "2026-08-26",
+    "online": 2,
+    "offline": 7.5
   }
 ]
