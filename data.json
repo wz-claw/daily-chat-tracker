@@ -531,5 +531,10 @@
     "date": "2026-09-05",
     "online": 0,
     "offline": 15
+  },
+  {
+    "date": "2026-09-06",
+    "online": 4,
+    "offline": 9
   }
 ]
